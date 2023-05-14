@@ -8,6 +8,6 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use('/companies', companiesRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 9001, () => {
   console.log(`Rodando na porta ${process.env.PORT}`);
 });
