@@ -6,7 +6,7 @@ const listCompanies = async () => {
 }
 
 const deleteCompany = async (id) => {
-    const companies = await companiesModel.deleteCompanies(id);
+    const companies = await companiesModel.deleteCompany(id);
     return companies;
 }
 
