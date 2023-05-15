@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App w-screen h-screen flex bg-slate-400">
       <Table props={companies} />
     </div>
   );

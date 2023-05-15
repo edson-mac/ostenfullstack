@@ -2,7 +2,7 @@ import TableRow from "./TableRow";
 
 function Table({ props }) {
   return (
-    <div className="w-9/12 relative overflow-x-auto">
+    <div className="m-auto w-6/12 relative overflow-x-auto border-solid border-2 border-sky-500">
       <table className="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>

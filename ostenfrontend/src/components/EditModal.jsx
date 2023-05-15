@@ -20,14 +20,9 @@ export default function EditModal(props) {
     estado: props.estado,
   });
 
-
-  const teste = () => {
-    console.log('teste')
-  }
-
   const handleEditCompany = () => {
     axios
-      .put(`http://localhost:3005/companies/${props.id}`, {
+      .put(`https://ostenfullstack.vercel.app/companies/${props.id}`, {
         id: editValues.id,
         name: editValues.name,
         rua: editValues.rua,
@@ -42,7 +37,7 @@ export default function EditModal(props) {
       icon: "success",
       title: "Empresa editada com sucesso!",
       showConfirmButton: false,
-      timer: 1500,
+      timer: 2000,
     });
     handleClose();
   };
