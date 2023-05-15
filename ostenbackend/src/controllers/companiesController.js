@@ -52,7 +52,7 @@ const updateCompany = async (req, res) => {
         res.status(200).json(company);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ "message": "Algo deu errado" });
+        res.status(500).json({ "message": $(err.message) });
     }
 }
 

@@ -1,14 +1,27 @@
-import './App.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Table from "./components/Table";
 
 function App() {
+  const [companies, setCompanies] = useState();
+
+  const getCompanies = async () => {
+    const getList = await axios.get(
+      "https://ostenfullstack.vercel.app/companies"
+    );
+
+    setCompanies(getList.data);
+  };
+
+  useEffect(() => {
+    getCompanies();
+  }, []);
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
-  )
+    <div className="App">
+      <Table props={companies} />
+    </div>
+  );
 }
 
-export default App
+export default App;
