@@ -48,11 +48,13 @@ const updateCompany = async (req, res) => {
     try {
         const { id } = req.params;
         const { name, rua, numero, bairro, cidade, estado } = req.body;
+        console.log(req.body)
         const company = await companiesService.updateCompany(id, name, rua, numero, bairro, cidade, estado);
         res.status(200).json(company);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({"message":`${req.body}`});
+        console.log(req.body)
+        res.status(500).json({"message": "Algo deu errado" });
     }
 }
 

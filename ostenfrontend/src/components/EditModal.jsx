@@ -27,7 +27,7 @@ export default function EditModal(props) {
 
   const handleEditCompany = () => {
     axios
-      .put(`https://ostenfullstack.vercel.app/companies/${props.id}`, {
+      .put(`http://localhost:3005/companies/${props.id}`, {
         id: editValues.id,
         name: editValues.name,
         brand: editValues.brand,
