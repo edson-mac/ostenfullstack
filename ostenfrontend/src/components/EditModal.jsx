@@ -30,13 +30,13 @@ export default function EditModal(props) {
       .put(`http://localhost:3005/companies/${props.id}`, {
         id: editValues.id,
         name: editValues.name,
-        brand: editValues.brand,
+        rua: editValues.rua,
         numero: editValues.numero.toString(),
         bairro: editValues.bairro,
         cidade: editValues.cidade,
         estado: editValues.estado,
       })
-      .then(() => teste());
+      .then(() => console.log(editValues));
     Swal.fire({
       position: "top-end",
       icon: "success",
