@@ -23,6 +23,11 @@ export default function AddModal(props) {
     estado: "",
   });
 
+  const isFormValid = () => {
+    return Object.values(editValues).every(value => value !== "");
+  };
+  
+
   const handleEditCompany = () => {
     axios
       .post(`https://ostenfullstack.vercel.app/companies/`, {
@@ -132,7 +137,7 @@ export default function AddModal(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={handleEditCompany}>Confirmar</Button>
+          <Button disabled={ !isFormValid() } onClick={handleEditCompany}>Confirmar</Button>
         </DialogActions>
       </Dialog>
     </div>
