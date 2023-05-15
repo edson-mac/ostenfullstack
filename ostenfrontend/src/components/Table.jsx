@@ -1,8 +1,7 @@
 import TableRow from "./TableRow";
-import { useProvider } from '../context/provider';
+import { useProvider } from "../context/provider";
 
 function Table() {
-
   const { companies } = useProvider();
 
   return (
@@ -34,21 +33,20 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {companies &&
-            companies.map((company) => {
-              return (
-                <TableRow
-                  key={company.id}
-                  id={company.id}
-                  name={company.name}
-                  rua={company.rua}
-                  numero={company.numero}
-                  bairro={company.bairro}
-                  cidade={company.cidade}
-                  estado={company.estado}
-                />
-              );
-            })}
+          {companies && companies.map((company) => {
+            return (
+              <TableRow
+                key={company.id}
+                id={company.id}
+                name={company.name}
+                rua={company.rua}
+                numero={company.numero}
+                bairro={company.bairro}
+                cidade={company.cidade}
+                estado={company.estado}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>
