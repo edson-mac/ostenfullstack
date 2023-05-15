@@ -71,9 +71,9 @@ function TableRow({ id, name, rua, numero, bairro, cidade, estado }) {
         <td className="px-6 py-4">{row.name}</td>
         <td className="px-6 py-4">{row.cidade}</td>
         <td className="px-6 py-4">{row.estado}</td>
-        <td className="px-6 py-4"><Info onClick={() => { showInfos() }} color="white" size={27} /></td>
-        <td className="px-6 py-4"><Edit onClick={() => { setOpen(true) }} color="white" size={25}/></td>
-        <td className="px-6 py-4"><X onClick={() => { handleDelete() }} color="red" size={27}/></td>
+        <td className="px-6 py-4"><Info className="hover:cursor-pointer" onClick={() => { showInfos() }} color="white" size={27} /></td>
+        <td className="px-6 py-4"><Edit className="hover:cursor-pointer" onClick={() => { setOpen(true) }} color="white" size={25}/></td>
+        <td className="px-6 py-4"><X className="hover:cursor-pointer" onClick={() => { handleDelete() }} color="red" size={27}/></td>
       </tr>
     </>
   );
