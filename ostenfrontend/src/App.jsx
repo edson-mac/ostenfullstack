@@ -1,25 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Table from "./components/Table";
+import CreateButton from "./components/CreateButton";
+import { useProvider } from './context/provider';
 
 function App() {
-  const [companies, setCompanies] = useState();
 
-  const getCompanies = async () => {
-    const getList = await axios.get(
-      "https://ostenfullstack.vercel.app/companies"
-    );
-
-    setCompanies(getList.data);
-  };
+  const { getCompanies } = useProvider();
 
   useEffect(() => {
     getCompanies();
   }, []);
 
   return (
-    <div className="App w-screen h-screen flex bg-slate-400">
-      <Table props={companies} />
+    <div className="App w-screen h-screen flex flex-col content-center items-center">
+      <div className="mt-24 w-2/6">
+        <img
+          src="https://www.ostenmoove.com.br/logo/logo-osten-moove.png"
+          alt="logo"
+        />
+      </div>
+      <CreateButton />
+      <Table />
     </div>
   );
 }

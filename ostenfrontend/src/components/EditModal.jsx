@@ -8,8 +8,12 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useProvider } from '../context/provider';
 
 export default function EditModal(props) {
+
+  const { getCompanies } = useProvider();
+
   const [editValues, setEditValues] = useState({
     id: props.id,
     name: props.name,
@@ -31,7 +35,7 @@ export default function EditModal(props) {
         cidade: editValues.cidade,
         estado: editValues.estado,
       })
-      .then(() => console.log(editValues));
+      .then(() =>  getCompanies());
     Swal.fire({
       position: "top-end",
       icon: "success",

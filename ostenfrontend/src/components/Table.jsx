@@ -1,8 +1,12 @@
 import TableRow from "./TableRow";
+import { useProvider } from '../context/provider';
 
-function Table({ props }) {
+function Table() {
+
+  const { companies } = useProvider();
+
   return (
-    <div className="m-auto w-6/12 relative overflow-x-auto border-solid border-2 border-sky-500">
+    <div className="mt-12 w-6/12 relative overflow-x-auto overflow-y-auto border-solid border-4 border-gray-700">
       <table className="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -30,8 +34,8 @@ function Table({ props }) {
           </tr>
         </thead>
         <tbody>
-          {props &&
-            props.map((company) => {
+          {companies &&
+            companies.map((company) => {
               return (
                 <TableRow
                   key={company.id}

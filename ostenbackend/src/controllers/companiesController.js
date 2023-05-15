@@ -13,8 +13,7 @@ const listCompanies = async (req, res) => {
 const deleteCompany = async (req, res) => {
     try {
         const { id } = req.params;
-        console.log(id)
-        await companiesService.deleteCompanie(id);
+        await companiesService.deleteCompany(id);
         res.status(204).json({ "message": "Empresa deletada com sucesso" });
     } catch (err) {
         console.error(err.message);

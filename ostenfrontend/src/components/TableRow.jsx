@@ -1,10 +1,15 @@
 import EditModal from "./EditModal";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Info, Edit, X } from 'lucide-react';
+import axios from "axios";
+import { useProvider } from '../context/provider';
 
 function TableRow({ id, name, rua, numero, bairro, cidade, estado }) {
   const row = { id, name, rua, numero, bairro, cidade, estado };
   const [open, setOpen] = useState(false);
+  const { getCompanies } = useProvider();
+  
 
   const showInfos = () => {
     return Swal.fire({
@@ -26,6 +31,27 @@ function TableRow({ id, name, rua, numero, bairro, cidade, estado }) {
   })
   }
 
+  const handleDelete = () => {
+    Swal.fire({
+        title: 'Deseja deletar essa empresa?',
+        text: "Não será possível reverter!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, confirmar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.delete(`https://ostenfullstack.vercel.app/companies/${id}`).then(() => getCompanies())
+
+            Swal.fire(
+                'Empresa deletada!',
+                'successo'
+            )
+        }
+    })
+}
+
 
   return (
     <>
@@ -45,9 +71,9 @@ function TableRow({ id, name, rua, numero, bairro, cidade, estado }) {
         <td className="px-6 py-4">{row.name}</td>
         <td className="px-6 py-4">{row.cidade}</td>
         <td className="px-6 py-4">{row.estado}</td>
-        <td className="px-6 py-4"><p onClick={() => { showInfos() }}>{"Info"}</p></td>
-        <td className="px-6 py-4"><p onClick={() => { setOpen(true) }}>{"editar"}</p></td>
-        <td className="px-6 py-4"><p>{"excluir"}</p></td>
+        <td className="px-6 py-4"><Info onClick={() => { showInfos() }} color="white" size={27} /></td>
+        <td className="px-6 py-4"><Edit onClick={() => { setOpen(true) }} color="white" size={25}/></td>
+        <td className="px-6 py-4"><X onClick={() => { handleDelete() }} color="red" size={27}/></td>
       </tr>
     </>
   );
