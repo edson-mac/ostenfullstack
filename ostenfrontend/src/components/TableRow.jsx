@@ -42,7 +42,7 @@ function TableRow({ id, name, rua, numero, bairro, cidade, estado }) {
         confirmButtonText: 'Sim, confirmar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            axios.delete(`https://ostenfullstack.vercel.app/companies/${id}`).then(() => getCompanies())
+            axios.delete(`${import.meta.env.VITE_API_URL}/${id}`).then(() => getCompanies())
 
             Swal.fire(
                 'Empresa deletada!',

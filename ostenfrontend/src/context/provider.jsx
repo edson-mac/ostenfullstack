@@ -5,9 +5,10 @@ export const mainContext = React.createContext({});
 
 export const Provider = (props) => {
 
+
     const getCompanies = async () => {
         const getList = await axios.get(
-          "https://ostenfullstack.vercel.app/companies"
+          `${import.meta.env.VITE_API_URL}`
         );
         setCompanies(getList.data);
       };
