@@ -1,7 +1,6 @@
 # :computer: Osten Moove Fullstack :computer:
 
 
-
 ## :page_with_curl: Sobre
 
 Esse projeto tem como objetivo construir uma aplicação CRUD Fullstack para cadastro de empresas.
